@@ -106,7 +106,7 @@ export default function Hitung() {
           </View>
         )}
 
-        <View style={{ height: 40 }} />
+        <View style={{ height: 160 }} />
       </ScrollView>
     </TouchableWithoutFeedback>
   );
