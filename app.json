@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "fortune-expedisi",
+    "name": "Fortune Expedition",
     "slug": "fortune-expedisi",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -42,6 +42,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "38918428-6dc7-41f0-94fd-61aa878ffc73"
+      }
     }
   }
 }
