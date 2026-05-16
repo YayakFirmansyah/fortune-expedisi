@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -47,7 +48,11 @@ export default function Home() {
             <Text style={styles.brand}>Fortune Expedisi</Text>
           </View>
           <View style={styles.avatar}>
-            <Ionicons name="car-sport" size={22} color="#fff" />
+            <Image
+              source={require("../../assets/images/logo.png")}
+              style={styles.avatarImage}
+              resizeMode="contain"
+            />
           </View>
         </View>
 
@@ -229,6 +234,11 @@ const makeStyles = (
       backgroundColor: ACCENT,
       alignItems: "center",
       justifyContent: "center",
+      overflow: "hidden",
+    },
+    avatarImage: {
+      width: "65%",
+      height: "65%",
     },
     heroCard: {
       backgroundColor: ACCENT,

@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const ACCENT = "#2563eb";
@@ -43,7 +43,11 @@ export default function About() {
 
         <View style={styles.heroCard}>
           <View style={styles.logo}>
-            <Ionicons name="car-sport" size={36} color="#ffffff" />
+            <Image
+              source={require("../../assets/images/logo.png")}
+              style={styles.logoImage}
+              resizeMode="contain"
+            />
           </View>
           <Text style={styles.appName}>Fortune Expedisi</Text>
           <Text style={styles.appTag}>Kalkulator Jasa Carter Kendaraan</Text>
@@ -215,18 +219,23 @@ const makeStyles = (colors: typeof Colors.light | typeof Colors.dark) =>
       marginBottom: 28,
     },
     logo: {
-      width: 72,
-      height: 72,
-      borderRadius: 20,
+      width: 88,
+      height: 88,
+      borderRadius: 24,
       backgroundColor: ACCENT,
       alignItems: "center",
       justifyContent: "center",
       marginBottom: 14,
+      overflow: "hidden",
       shadowColor: ACCENT,
       shadowOffset: { width: 0, height: 8 },
       shadowOpacity: 0.3,
       shadowRadius: 16,
       elevation: 8,
+    },
+    logoImage: {
+      width: "82%",
+      height: "82%",
     },
     appName: {
       fontSize: 20,
