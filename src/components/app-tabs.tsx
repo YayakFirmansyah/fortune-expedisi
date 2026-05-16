@@ -1,32 +1,40 @@
-import { NativeTabs } from 'expo-router/unstable-native-tabs';
-import React from 'react';
-import { useColorScheme } from 'react-native';
+import { useColorScheme } from "@/hooks/use-color-scheme";
+import { NativeTabs } from "expo-router/unstable-native-tabs";
+import React from "react";
+import { Text, View } from "react-native";
 
-import { Colors } from '@/constants/theme';
+import { Colors } from "@/constants/theme";
 
 export default function AppTabs() {
   const scheme = useColorScheme();
-  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
+  const themeKey: "light" | "dark" = scheme === "dark" ? "dark" : "light";
+  const colors = Colors[themeKey];
 
   return (
     <NativeTabs
       backgroundColor={colors.background}
       indicatorColor={colors.backgroundElement}
-      labelStyle={{ selected: { color: colors.text } }}>
+      labelStyle={{ selected: { color: colors.text } }}
+    >
       <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/home.png')}
-          renderingMode="template"
-        />
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+          <Text style={{ fontSize: 20 }}>🏠</Text>
+          <Text style={{ color: colors.text }}>Beranda</Text>
+        </View>
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={require('@/assets/images/tabIcons/explore.png')}
-          renderingMode="template"
-        />
+      <NativeTabs.Trigger name="hitung">
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+          <Text style={{ fontSize: 20 }}>🧮</Text>
+          <Text style={{ color: colors.text }}>Hitung</Text>
+        </View>
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="settings">
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+          <Text style={{ fontSize: 20 }}>⚙️</Text>
+          <Text style={{ color: colors.text }}>Settings</Text>
+        </View>
       </NativeTabs.Trigger>
     </NativeTabs>
   );
